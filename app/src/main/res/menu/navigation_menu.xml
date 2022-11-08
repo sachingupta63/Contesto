@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_one">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/codeforces"
+            android:icon="@drawable/codeforces_icon"
+            android:title="@string/codeforces" />
+        <item
+            android:id="@+id/codechef"
+            android:icon="@drawable/codechef_icon"
+            android:title="@string/codechef" />
+        <item
+            android:id="@+id/leetcode"
+            android:icon="@drawable/leetcode_icon"
+            android:title="@string/leetcode" />
+        <item
+            android:id="@+id/hackerrank"
+            android:icon="@drawable/hackerrank_icon"
+            android:title="@string/hackerrank" />
+        <item
+            android:id="@+id/hackerearth"
+            android:icon="@drawable/hackerearth_icon"
+            android:title="@string/hackerearth" />
+        <item
+            android:id="@+id/atcoder"
+            android:icon="@drawable/atcoder_icon"
+            android:title="@string/atcoder" />
+        <item
+            android:id="@+id/spoj"
+            android:icon="@drawable/spoj2"
+            android:title="@string/spoj" />
+        <item
+            android:id="@+id/topcoder"
+            android:icon="@drawable/topcoder_icon"
+            android:title="@string/topcoder" />
+        <item
+            android:id="@+id/google"
+            android:icon="@drawable/google_icon"
+            android:title="@string/google" />
+
+    </group>
+
+
+
+</menu>

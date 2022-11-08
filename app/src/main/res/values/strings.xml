@@ -2,7 +2,6 @@
     <string name="app_name">Contesto</string>
     <string name="copyright">© Coder\'s Calendar</string>
     <string name="navigation_setting">Settings</string>
-    <string name="navigation_notification">Notifications</string>
     <string name="navigation_signout">Signout</string>
     <string name="navigation_help">Help</string>
     <string name="navigation_share">Share Us</string>
