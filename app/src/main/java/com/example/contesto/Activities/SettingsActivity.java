@@ -50,8 +50,10 @@ public class SettingsActivity extends AppCompatActivity {
         switchTwentyFour = findViewById(R.id.switch_24_time_format);
         switchNotification = findViewById(R.id.switch_notification);
 
+        //Restore Checked State that has been previously set
         restoreCheckBoxState();
 
+        //Restore Toggle Item that has been previously set
         restoreToggledItemsState();
 
         switchTwelve.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
@@ -135,8 +137,6 @@ public class SettingsActivity extends AppCompatActivity {
 
         Methods.saveTabItems(this,checkedItem);
 
-
-        //finishAffinity();
     }
 
     public void restoreCheckBoxState() {

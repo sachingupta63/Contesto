@@ -13,43 +13,38 @@ public class ContestObject {
     @PrimaryKey(autoGenerate = true)
     private int _id;
 
-    //    @SerializedName("platform")
     @SerializedName("site")
     @Expose
     private String platform;
-    //    @SerializedName("id")
-//    @SerializedName("duration")
-//    @Expose
-//    private String contestId;
-//    @SerializedName("title")
     @SerializedName("name")
     @Expose
     private String title;
-    //    @SerializedName("start")
+
     @SerializedName("start_time")
     @Expose
     private String start;
-    //    @SerializedName("end")
+
     @SerializedName("end_time")
     @Expose
     private String end;
-    //    @SerializedName("duration")
+
     @SerializedName("duration")
     @Expose
     private String duration;
-    //    @SerializedName("link")
+
     @SerializedName("url")
     @Expose
     private String link;
-    //    @SerializedName("status")
+
     @SerializedName("status")
     @Expose
     private String status;
 
 
-    public ContestObject() {}
+    public ContestObject() {
+    }
 
-    public ContestObject(String title, String start,String end, String duration,String link,String status, String platform) {
+    public ContestObject(String title, String start, String end, String duration, String link, String status, String platform) {
         this.title = title;
         this.start = start;
         this.end = end;
@@ -102,9 +97,6 @@ public class ContestObject {
         return status;
     }
 
-//    public String getContestId() {
-//        return contestId;
-//    }
 
     public void set_id(int _id) {
         this._id = _id;
@@ -135,10 +127,8 @@ public class ContestObject {
     }
 
     public void setPlatform(String platform) {
-        this.platform =  platform;
+        this.platform = platform;
     }
 
-//    public void setContestId(String contestId) {
-//        this.contestId = contestId;
-//    }
+
 }

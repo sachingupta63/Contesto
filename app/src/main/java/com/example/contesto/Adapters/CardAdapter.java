@@ -42,38 +42,38 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.CardAdapterVie
     private List<ContestObject> ContestObjectArrayList;
     private List<ContestObject> DummyContestObjectArrayList;
     private Context context;
-    private List<Boolean> CheckMoreFlag;
-    private Filter FilteredData = new Filter() {
-        @Override
-        protected FilterResults performFiltering(CharSequence constraint) {
-            List<ContestObject> filtered = new ArrayList<>();
+//    private List<Boolean> CheckMoreFlag;
+//    private Filter FilteredData = new Filter() {
+//        @Override
+//        protected FilterResults performFiltering(CharSequence constraint) {
+//            List<ContestObject> filtered = new ArrayList<>();
+//
+//            if (constraint == null || constraint.length() == 0) {
+//                filtered.addAll(DummyContestObjectArrayList);
+//            } else {
+//                String check = constraint.toString().toLowerCase().trim();
+//
+//                for (ContestObject items : DummyContestObjectArrayList) {
+//                    if (items.getTitle().toLowerCase().contains(check) || items.getPlatform().toLowerCase().contains(check)
+//                            || items.getStatus().toLowerCase().contains(check)) {
+//                        filtered.add(items);
+//                    }
+//                }
+//            }
+//
+//            FilterResults results = new FilterResults();
+//            results.values = filtered;
+//
+//            return results;
+//        }
 
-            if (constraint == null || constraint.length() == 0) {
-                filtered.addAll(DummyContestObjectArrayList);
-            } else {
-                String check = constraint.toString().toLowerCase().trim();
-
-                for (ContestObject items : DummyContestObjectArrayList) {
-                    if (items.getTitle().toLowerCase().contains(check) || items.getPlatform().toLowerCase().contains(check)
-                            || items.getStatus().toLowerCase().contains(check)) {
-                        filtered.add(items);
-                    }
-                }
-            }
-
-            FilterResults results = new FilterResults();
-            results.values = filtered;
-
-            return results;
-        }
-
-        @Override
-        protected void publishResults(CharSequence constraint, FilterResults results) {
-            ContestObjectArrayList.clear();
-            ContestObjectArrayList.addAll((List) results.values);
-            notifyDataSetChanged();
-        }
-    };
+//        @Override
+//        protected void publishResults(CharSequence constraint, FilterResults results) {
+//            ContestObjectArrayList.clear();
+//            ContestObjectArrayList.addAll((List) results.values);
+//            notifyDataSetChanged();
+//        }
+//    };
 
 
     public CardAdapter(Context context) {
@@ -83,20 +83,20 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.CardAdapterVie
     public CardAdapter(Context context, List<ContestObject> ContestObjectArrayList) {
         this.context = context;
         this.ContestObjectArrayList = ContestObjectArrayList;
-        InitializeBool();
+//        InitializeBool();
     }
 
     public void setData(List<ContestObject> data) {
         this.ContestObjectArrayList = data;
         notifyDataSetChanged();
-        InitializeBool();
+//        InitializeBool();
     }
 
-    public void InitializeBool() {
-        DummyContestObjectArrayList = new ArrayList<>(ContestObjectArrayList);
-        CheckMoreFlag = new ArrayList<Boolean>(getItemCount());
-        CheckMoreFlag.addAll(Collections.nCopies(getItemCount(), Boolean.FALSE));
-    }
+//    public void InitializeBool() {
+//        DummyContestObjectArrayList = new ArrayList<>(ContestObjectArrayList);
+//        CheckMoreFlag = new ArrayList<Boolean>(getItemCount());
+//        CheckMoreFlag.addAll(Collections.nCopies(getItemCount(), Boolean.FALSE));
+//    }
 
 
 
@@ -122,11 +122,13 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.CardAdapterVie
         holder.mDateStart.setText(Methods.getStringFormat(ContestObjectArrayList.get(position).getStart()));
         holder.mDuration.setText(durationFormater(ContestObjectArrayList.get(position).getDuration()));
 
+
+        //Clicking Share Button
         holder.share.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-//              // implemented share of contest
-                // getStart() provides ie. 2014-07-07T18:30:00.000Z
+              // implemented share of contest
+                // getStart() & getEnd() provides ie. 2014-07-07T18:30:00.000Z
                 String startDate = ContestObjectArrayList.get(position).getStart().substring(0, 16);
                 String endDate = ContestObjectArrayList.get(position).getEnd().substring(0, 16);
 
@@ -151,23 +153,26 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.CardAdapterVie
 
             }
         });
+
+        //Clicking Card Layout to open the Contest on Web
         holder.mCard.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-//                Toast.makeText(context, "Implement Notification " + position, Toast.LENGTH_SHORT).show();
+
                 String url = ContestObjectArrayList.get(position).getLink();
                 Intent i = new Intent(Intent.ACTION_VIEW);
                 i.setData(Uri.parse(url));
                 context.startActivity(i);
             }
         });
+
+        //Setting Reminder in Calender
         holder.calendarReminder.setOnClickListener(new View.OnClickListener() {
             @RequiresApi(api = Build.VERSION_CODES.O)
             @Override
             public void onClick(View view) {
-//               Toast.makeText(context,ContestObjectArrayList.get(position).toString(),Toast.LENGTH_SHORT).show();
 
-               // if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
+
                     LocalDateTime start = null;
                     start = LocalDateTime.parse(ContestObjectArrayList.get(position).getStart().substring(0, ContestObjectArrayList.get(position).getStart().length() - 2));
                     LocalDateTime stop = LocalDateTime.parse(ContestObjectArrayList.get(position).getEnd().substring(0, ContestObjectArrayList.get(position).getEnd().length() - 2));
@@ -187,6 +192,7 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.CardAdapterVie
 
     }
 
+    //Formating the Duration in String
     private String durationFormater(String duration){
         String formatDuration = "";
 
@@ -241,7 +247,6 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.CardAdapterVie
         private final TextView mDateStart;
         private final TextView mDateEnd, mDuration;
         private final CardView mCard;
-        //private final Button openLinkInBrowser;
         private final Button calendarReminder, share;
         LinearLayout viewHolder;
         public CardAdapterViewHolder(@NonNull View itemView) {
@@ -251,7 +256,6 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.CardAdapterVie
             mDateStart = itemView.findViewById(R.id.date_start);
             mDateEnd = itemView.findViewById(R.id.date_end);
             mCard = itemView.findViewById(R.id.card);
-            //openLinkInBrowser = itemView.findViewById(R.id.open_link_in_browser);
             calendarReminder = itemView.findViewById(R.id.set_reminder);
             share = itemView.findViewById(R.id.share_in_whatsapp);
             mDuration = itemView.findViewById(R.id.duration);

@@ -12,7 +12,7 @@ import com.example.contesto.Utils.Constants;
 @Database(entities = {ContestObject.class}, version = 2)
 public abstract class RoomDB extends RoomDatabase {
 
-    //TODO Room Functions to be written in this folder
+    //Room Instance
     private static RoomDB instance;
 
     public abstract RoomDAO roomDAO();

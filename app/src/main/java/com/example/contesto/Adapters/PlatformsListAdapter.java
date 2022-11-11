@@ -52,6 +52,7 @@ public class PlatformsListAdapter extends RecyclerView.Adapter<PlatformsListAdap
     @Override
     public void onBindViewHolder(@NonNull PlatformsListAdapterViewHolder holder, @SuppressLint("RecyclerView") int position) {
 
+        //setting up Animation
         holder.contestButton.setAnimation(AnimationUtils.loadAnimation(context,R.anim.pop_in));
         holder.contestButton.setText(ContestObjectArrayList.get(position));
 

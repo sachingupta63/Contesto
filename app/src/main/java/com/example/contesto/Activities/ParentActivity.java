@@ -140,7 +140,7 @@ public class ParentActivity extends AppCompatActivity {
             @Override
             public void onComplete(boolean connected) {
                 if(connected){
-                    Log.e("INTERNET","CONNECTED");
+                    //Log.e("INTERNET","CONNECTED");
                     Methods.setPreferences(ParentActivity.this, Constants.ISINTERNET, Constants.ISINTERNET,1);
                     apiViewModel.fetchContestFromApi();
                 }else{
@@ -204,11 +204,6 @@ public class ParentActivity extends AppCompatActivity {
 
     }
 
-//    @Override
-//    public boolean onCreateOptionsMenu(Menu menu) {
-//        getMenuInflater().inflate(R.menu.appbar_menu, menu);
-//        return true;
-//    }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {

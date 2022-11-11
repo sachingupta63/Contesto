@@ -67,7 +67,6 @@ public class ShowContestActivity extends AppCompatActivity {
             @Override
             public void onChanged(List<ContestObject> contestObjects) {
                 EventBus.getDefault().post(contestObjects);
-               // Log.e("Objs on show card>>>>",String.valueOf(contestObjects.size()));
                 boolean running,rated,hour24,week1,week2,month1;
                 running= Methods.getIntPreferences(ShowContestActivity.this, Constants.SWITCH_RUNNING, Constants.SWITCH_RUNNING)!=0;
                 rated=Methods.getIntPreferences(ShowContestActivity.this, Constants.SWITCH_RATED, Constants.SWITCH_RATED)!=0;
@@ -266,13 +265,13 @@ public class ShowContestActivity extends AppCompatActivity {
         }
         else if (platform.equals("hackerrank"))
         {
-            Toast.makeText(this, "NO RATED CONTEST:(", Toast.LENGTH_SHORT).show();
-//           String[] keywords={"#"};
-//           for(String x: keywords)
-//           {
-//               if(contest.getTitle().contains(x))
-//                   contestByPlatform.add(contest);
-//           }
+            //Toast.makeText(this, "NO RATED CONTEST:(", Toast.LENGTH_SHORT).show();
+           String[] keywords={"#"};
+           for(String x: keywords)
+           {
+               if(contest.getTitle().contains(x))
+                   contestByPlatform.add(contest);
+           }
         }
         else if (platform.equals("hackerearth"))
         {
@@ -285,13 +284,13 @@ public class ShowContestActivity extends AppCompatActivity {
         }
         else if (platform.equals("spoj"))
         {
-            Toast.makeText(this, "NO RATED CONTEST:(", Toast.LENGTH_SHORT).show();
-//           String[] keywords={"#"};
-//           for(String x: keywords)
-//           {
-//               if(contest.getTitle().contains(x))
-//                   contestByPlatform.add(contest);
-//           }
+            //Toast.makeText(this, "NO RATED CONTEST:(", Toast.LENGTH_SHORT).show();
+           String[] keywords={"#"};
+           for(String x: keywords)
+           {
+               if(contest.getTitle().contains(x))
+                   contestByPlatform.add(contest);
+           }
         }
         else if (platform.equals("atcoder"))
         {

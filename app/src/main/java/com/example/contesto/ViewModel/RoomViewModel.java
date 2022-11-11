@@ -28,7 +28,8 @@ public class RoomViewModel extends AndroidViewModel {
         roomRepository.addContest(contestObject);
     }
 
-    public void addAllContest(List<ContestObject> AllContest) { roomRepository.addAllContest(AllContest);}
+    public void addAllContest(List<ContestObject> AllContest) {
+        roomRepository.addAllContest(AllContest);}
 
     public void deleteAndAddAllTuples(List<ContestObject> contestObjects) {
         roomRepository.deleteAndAddAllTuples(contestObjects);

@@ -41,10 +41,12 @@ public class MainActivity extends ParentActivity {
 
     RecyclerView titlesRecycler;
     PlatformsListAdapter platformsListAdapter;
+
     //Floating Action Button
     TextView contestText,settingText;
     FloatingActionButton setting,contest;
     ExtendedFloatingActionButton action;
+
     //Parallax Layout
     ParallaxLayerLayout mParallaxLayout;
     SensorTranslationUpdater sensorTranslationUpdater;
@@ -125,39 +127,13 @@ public class MainActivity extends ParentActivity {
         });
 
 
-
-        // RoomDB data saving start -------------------------------------------------------------------
-
-//        apiViewModel = new ViewModelProvider(this).get(ApiViewModel.class);
-//        apiViewModel.init();
-//
-//        new Methods.InternetCheck(this).isInternetConnectionAvailable(new Methods.InternetCheck.InternetCheckListener() {
-//            @Override
-//            public void onComplete(boolean connected) {
-//                if(connected){
-//                    Log.e("INTERNET","CONNECTED");
-//                    Methods.setPreferences(MainActivity.this,Constants.ISINTERNET, Constants.ISINTERNET,1);
-//                    apiViewModel.fetchContestFromApi();
-//                }else{
-//                    Methods.setPreferences(MainActivity.this,Constants.ISINTERNET, Constants.ISINTERNET,0);
-//                }
-//            }
-//        });
-//
-//        apiViewModel.getAllContests().observe(MainActivity.this, new Observer<List<ContestObject>>() {
-//            @Override
-//            public void onChanged(List<ContestObject> contestObjects) {
-//                mRoomViewModel.deleteAndAddAllTuples(contestObjects);
-//            }
-//        });
-
         //Getting All Platform Contest List
 
         mRoomViewModel.getAllContests().observe(this, new Observer<List<ContestObject>>() {
             @Override
             public void onChanged(List<ContestObject> contestObjects) {
                 EventBus.getDefault().post(contestObjects);
-                Log.e("Objs From DB>>>>",String.valueOf(contestObjects.size()));
+                //Log.e("Objs From DB>>>>",String.valueOf(contestObjects.size()));
                 if(Methods.getIntPreferences(MainActivity.this, Constants.ISINTERNET,Constants.ISINTERNET)==0){
                     AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this)
                             .setTitle("No Internet Connection")

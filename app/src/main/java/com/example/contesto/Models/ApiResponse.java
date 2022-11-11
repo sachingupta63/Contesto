@@ -5,8 +5,7 @@ import com.google.gson.annotations.SerializedName;
 
 import java.util.List;
 
-public class ApiResponse
-{
+public class ApiResponse {
     @SerializedName("offer_by")
     @Expose
     private String builtBy;

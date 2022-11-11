@@ -24,6 +24,7 @@ public class ApiViewModel extends ViewModel {
 
     public void fetchContestFromApi() {
 
+        //Executing to get Response
         repository.fetchContestFromApi();
     }
 

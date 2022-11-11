@@ -17,12 +17,6 @@
         android:theme="@style/Theme.Contesto"
         tools:targetApi="31">
         <activity
-            android:name=".Activities.LongContestActivity"
-            android:exported="false" />
-        <activity
-            android:name=".Activities.ShortActivity"
-            android:exported="false" />
-        <activity
             android:name=".Activities.RunningActivity"
             android:exported="false" />
         <activity

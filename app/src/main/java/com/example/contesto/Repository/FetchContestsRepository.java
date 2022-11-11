@@ -20,6 +20,8 @@ import java.util.Objects;
 import retrofit2.Callback;
 import retrofit2.Response;
 
+
+
 public class FetchContestsRepository {
 
     private ApiInterface apiInterface;
@@ -29,14 +31,18 @@ public class FetchContestsRepository {
 
         apiInterface = APIClient.getClient().create(ApiInterface.class);
         retrofit2.Call<List<ContestObject>> call = apiInterface.getAllContestsFromApi();
+
+        //Creating Instance of Async Task that fetch data from api
         fetchApiAsyncTask = new FetchApiAsyncTask(call);
 
     }
 
     public LiveData<List<ContestObject>> getContestsListAsync(){
+        //Calling the function in FetchApiAsyncTask Class to return list of Contest
         return fetchApiAsyncTask.getLiveContestsList();
     }
 
+    //Executing the FetchApiAsyncTask that fetch data from api
     public void fetchContestFromApi(){
         fetchApiAsyncTask.execute();
     }
@@ -51,6 +57,7 @@ public class FetchContestsRepository {
             liveContestList = new MutableLiveData<>();
         }
 
+        //Returning Api Response
         private MutableLiveData<List<ContestObject>> getLiveContestsList () {
             return  liveContestList;
         }
@@ -62,13 +69,17 @@ public class FetchContestsRepository {
                 @Override
                 public void onResponse(retrofit2.Call<List<ContestObject>> call, Response<List<ContestObject>> response) {
 
-                    Log.e("APIFETCHEDREPOASYNC>>",response.code()+" ");
+                    //Getting API Response
 
                     List<ContestObject> apiResponse = response.body();
-                    Log.e("RESPONSE BODY>>",response.body().size()+" ");
+
+
+
                     assert apiResponse != null;
+
+                    //Updating api response to mutable live data
                     liveContestList.postValue(response.body());
-//                    liveContestList.postValue(apiResponse.getObjects());
+
                 }
 
                 @Override
