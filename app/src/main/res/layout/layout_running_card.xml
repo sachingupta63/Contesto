@@ -2,7 +2,7 @@
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/card"
+    android:id="@+id/card_contest"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     app:cardElevation="2dp"
@@ -10,14 +10,14 @@
     >
 
     <LinearLayout
-        android:id="@+id/contest_detail_view_holder"
+        android:id="@+id/contest_detail_view_holder_contest"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="#ffffe5e6"
         android:orientation="vertical">
 
         <TextView
-            android:id="@+id/platform_name"
+            android:id="@+id/platform_name_contest"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
@@ -26,9 +26,9 @@
             android:paddingStart="8dp"
             android:paddingEnd="8dp"
             android:textAppearance="@style/TextAppearance.MaterialComponents.Headline5"
-            tools:text="Codeforces Round" />
+            tools:text="Codeforces" />
         <TextView
-            android:id="@+id/tv_round_name"
+            android:id="@+id/tv_round_name_contest"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
@@ -40,7 +40,7 @@
             tools:text="Codeforces Round" />
 
         <TextView
-            android:id="@+id/duration"
+            android:id="@+id/duration_contest_contest"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
@@ -81,7 +81,7 @@
                         android:textStyle="bold" />
 
                     <TextView
-                        android:id="@+id/date_start"
+                        android:id="@+id/date_start_contest"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="2dp"
@@ -121,7 +121,7 @@
                         android:textStyle="bold" />
 
                     <TextView
-                        android:id="@+id/date_end"
+                        android:id="@+id/date_end_contest"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="2dp"
@@ -147,7 +147,7 @@
 
 
             <Button
-                android:id="@+id/set_reminder"
+                android:id="@+id/set_reminder_contest"
                 android:layout_weight="1"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -166,7 +166,7 @@
                 />
 
             <Button
-                android:id="@+id/share_in_whatsapp"
+                android:id="@+id/share_in_whatsapp_contest"
                 android:layout_weight="1"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"

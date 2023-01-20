@@ -85,15 +85,15 @@ public class MainActivity extends ParentActivity {
                 if(isFabOpen) {
                     action.shrink();
                     setting.setVisibility(View.GONE);
-                    contest.setVisibility(View.GONE);
-                    contestText.setVisibility(View.GONE);
+//                    contest.setVisibility(View.GONE);
+//                    contestText.setVisibility(View.GONE);
                     settingText.setVisibility(View.GONE);
                     isFabOpen=false;
                 }else{
                     action.extend();
                     setting.setVisibility(View.VISIBLE);
-                    contest.setVisibility(View.VISIBLE);
-                    contestText.setVisibility(View.VISIBLE);
+//                    contest.setVisibility(View.VISIBLE);
+//                    contestText.setVisibility(View.VISIBLE);
                     settingText.setVisibility(View.VISIBLE);
                     isFabOpen=true;
                 }
@@ -113,18 +113,18 @@ public class MainActivity extends ParentActivity {
             }
         });
 
-        contest.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(MainActivity.this,MainActivity2.class));
-                action.shrink();
-                setting.setVisibility(View.GONE);
-                contest.setVisibility(View.GONE);
-                contestText.setVisibility(View.GONE);
-                settingText.setVisibility(View.GONE);
-                isFabOpen=false;
-            }
-        });
+//        contest.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                startActivity(new Intent(MainActivity.this,MainActivity2.class));
+//                action.shrink();
+//                setting.setVisibility(View.GONE);
+//                contest.setVisibility(View.GONE);
+//                contestText.setVisibility(View.GONE);
+//                settingText.setVisibility(View.GONE);
+//                isFabOpen=false;
+//            }
+//        });
 
 
         //Getting All Platform Contest List
